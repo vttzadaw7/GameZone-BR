@@ -1,47 +1,60 @@
+<!-- GAMEZONE BR ULTRA VERSION -->
+<!-- COLE TUDO ISSO NO INDEX.HTML -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GameZone BR</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial, sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#07111f;
-overflow-x:hidden;
+background:#030712;
 color:white;
+overflow-x:hidden;
 }
 
-/* FUNDO ANIMADO */
+/* FUNDO */
 
-.background{
+#background{
 position:fixed;
 width:100%;
 height:100%;
 top:0;
 left:0;
+z-index:-2;
+background:
+radial-gradient(circle at top,#0f172a,#030712 70%);
 overflow:hidden;
-z-index:-1;
 }
 
 .triangle{
 position:absolute;
 width:0;
 height:0;
-border-left:15px solid transparent;
-border-right:15px solid transparent;
-border-bottom:25px solid rgba(0,170,255,0.25);
+border-left:12px solid transparent;
+border-right:12px solid transparent;
+border-bottom:20px solid rgba(0,170,255,0.15);
 animation:fall linear infinite;
+filter:blur(0.5px);
 }
 
 @keyframes fall{
+
 0%{
 transform:translateY(-100px) rotate(0deg);
 opacity:0;
@@ -51,32 +64,39 @@ opacity:0;
 transform:translateY(120vh) rotate(360deg);
 opacity:1;
 }
+
 }
 
 /* HEADER */
 
 header{
-padding:20px;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(15px);
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:sticky;
-top:0;
-z-index:100;
+
+padding:20px;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-header h1{
-color:#00aaff;
+.logo{
 font-size:2rem;
+font-weight:bold;
+color:#00aaff;
+text-shadow:0 0 15px #00aaff;
 }
 
 nav a{
 margin-left:20px;
-color:white;
 text-decoration:none;
+color:white;
 transition:0.3s;
+font-size:1rem;
 }
 
 nav a:hover{
@@ -86,23 +106,25 @@ color:#00aaff;
 /* HERO */
 
 .hero{
+padding:120px 20px;
 text-align:center;
-padding:100px 20px;
 }
 
-.hero h2{
+.hero h1{
 font-size:3rem;
 margin-bottom:20px;
+text-shadow:0 0 20px rgba(0,170,255,0.6);
 }
 
 .hero p{
-max-width:700px;
+max-width:800px;
 margin:auto;
+color:#cbd5e1;
 font-size:1.1rem;
-color:#c7d2fe;
+line-height:1.7;
 }
 
-.btn{
+.hero-btn{
 display:inline-block;
 margin-top:30px;
 padding:15px 30px;
@@ -112,51 +134,119 @@ font-weight:bold;
 border-radius:15px;
 text-decoration:none;
 transition:0.3s;
+box-shadow:0 0 20px rgba(0,170,255,0.5);
 }
 
-.btn:hover{
-transform:scale(1.1);
+.hero-btn:hover{
+transform:scale(1.08);
 }
 
-/* CARDS */
+/* CONTADOR */
 
-.cards{
+.counter{
+margin-top:25px;
+font-size:1rem;
+color:#94a3b8;
+}
+
+/* SECTIONS */
+
+section{
+padding:60px 20px;
+}
+
+.section-title{
+font-size:2rem;
+margin-bottom:40px;
+text-align:center;
+color:#00aaff;
+text-shadow:0 0 15px rgba(0,170,255,0.5);
+}
+
+/* EMULADORES */
+
+.emulators{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:40px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
 }
 
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:20px;
-transition:0.3s;
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+
+border-radius:25px;
+overflow:hidden;
+
+transition:0.4s;
 }
 
 .card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px rgba(0,170,255,0.5);
+box-shadow:0 0 30px rgba(0,170,255,0.4);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
 }
 
 .card h3{
-margin-bottom:15px;
 color:#00aaff;
+margin-bottom:15px;
+font-size:1.5rem;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.6;
+}
+
+.games{
+margin-top:20px;
+}
+
+.games li{
+margin-bottom:8px;
+color:#e2e8f0;
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#00aaff;
+color:black;
+border:none;
+padding:15px;
+border-radius:50%;
+font-size:1.2rem;
+cursor:pointer;
+box-shadow:0 0 20px rgba(0,170,255,0.5);
+z-index:999;
 }
 
 /* FOOTER */
 
 footer{
+padding:40px;
 text-align:center;
-padding:30px;
 color:#94a3b8;
+border-top:1px solid rgba(255,255,255,0.1);
+margin-top:40px;
 }
 
 /* RESPONSIVO */
 
-@media(max-width:700px){
+@media(max-width:768px){
 
 header{
 flex-direction:column;
@@ -166,191 +256,278 @@ nav{
 margin-top:15px;
 }
 
-.hero h2{
-font-size:2rem;
+.hero h1{
+font-size:2.2rem;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="background" id="background"></div>
+<div id="background"></div>
 
 <header>
-<h1>🎮 GameZone BR</h1>
+
+<div class="logo">🎮 GameZone BR</div>
 
 <nav>
 <a href="#">Início</a>
-<a href="#emu">Emuladores</a>
-<a href="#games">Jogos</a>
+<a href="#emulators">Emuladores</a>
+<a href="#about">Sobre</a>
 </nav>
+
 </header>
 
 <section class="hero">
 
-<h2>🔥 O mundo dos games mobile e emulação</h2>
+<h1>🔥 O Portal Gamer da Emulação Mobile</h1>
 
 <p>
-Configs, jogos leves, emuladores e dicas para melhorar o desempenho do seu celular.
+Os melhores emuladores Android, configs ideais, jogos recomendados
+e dicas para melhorar o desempenho do seu celular.
 </p>
 
-<a href="#emu" class="btn">🚀 Explorar</a>
+<a href="#emulators" class="hero-btn">🚀 Explorar</a>
+
+<div class="counter">
+👥 Visitantes hoje: <span id="views">1287</span>
+</div>
 
 </section>
 
-<section class="cards" id="emu">
+<section id="emulators">
+
+<h2 class="section-title">🎮 Emuladores Recomendados</h2>
+
+<div class="emulators">
+
+<!-- NETHERSX2 -->
 
 <div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/PlayStation_2_logo.svg">
+
+<div class="card-content">
+
 <h3>🕹️ NetherSX2</h3>
 
 <p>
-Ideal para jogar PS2 no Android.
+Melhor emulador de PlayStation 2 para Android.
 </p>
 
 <br>
 
 <p>
-⚙️ Configuração recomendada:
-<br><br>
+⚙️ Config ideal:
+<br>
 • Vulkan
 <br>
 • 2x resolução
 <br>
-• Hacks de velocidade ativados
-<br>
-• Multithread VU1 ligado
+• Multithread VU1
 </p>
+
+<div class="games">
+
+<h4>🔥 Jogos recomendados</h4>
+
+<ul>
+
+<li>God of War 2</li>
+<li>Resident Evil 4</li>
+<li>Shadow of the Colossus</li>
+<li>Bully</li>
+<li>Black</li>
+<li>Dragon Ball BT3</li>
+<li>Need for Speed Underground 2</li>
+<li>Midnight Club 3</li>
+<li>GTA San Andreas</li>
+<li>Metal Gear Solid 3</li>
+
+</ul>
+
 </div>
 
+</div>
+</div>
+
+<!-- PPSSPP -->
+
 <div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/PPSSPP_logo.svg">
+
+<div class="card-content">
 
 <h3>🎮 PPSSPP</h3>
 
 <p>
-Melhor emulador de PSP para Android.
+O melhor emulador de PSP.
 </p>
 
 <br>
 
 <p>
-🔥 Jogos recomendados:
-<br><br>
-• God of War
+⚙️ Config ideal:
 <br>
-• GTA Vice City Stories
+• Vulkan
 <br>
-• Naruto Ultimate Ninja Impact
+• Buffer rendering ligado
+<br>
+• 3x resolução
 </p>
+
+<div class="games">
+
+<h4>🔥 Jogos recomendados</h4>
+
+<ul>
+
+<li>God of War Ghost of Sparta</li>
+<li>Naruto Ultimate Ninja Impact</li>
+<li>Dragon Ball Shin Budokai</li>
+<li>GTA Vice City Stories</li>
+<li>Tekken 6</li>
+<li>Midnight Club LA Remix</li>
+<li>Persona 3 Portable</li>
+<li>Monster Hunter Freedom Unite</li>
+<li>Dissidia Final Fantasy</li>
+<li>Ben 10 Protector of Earth</li>
+
+</ul>
 
 </div>
 
+</div>
+</div>
+
+<!-- DOLPHIN -->
+
 <div class="card">
 
-<h3>👾 SNES9x</h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Dolphin-emu.svg">
+
+<div class="card-content">
+
+<h3>🐬 Dolphin</h3>
 
 <p>
-Emulador leve para Super Nintendo.
+Emulador de GameCube e Wii.
 </p>
 
 <br>
 
 <p>
-🎯 Jogos clássicos:
-<br><br>
-• Super Mario World
+⚙️ Config ideal:
 <br>
-• Donkey Kong Country
+• Vulkan
 <br>
-• Zelda A Link to the Past
+• Async shaders
+<br>
+• Dual core ativado
 </p>
+
+<div class="games">
+
+<h4>🔥 Jogos recomendados</h4>
+
+<ul>
+
+<li>Mario Kart Wii</li>
+<li>Zelda Twilight Princess</li>
+<li>Super Mario Galaxy</li>
+<li>Resident Evil 4</li>
+<li>Mario Sunshine</li>
+<li>Need for Speed Most Wanted</li>
+<li>Metroid Prime</li>
+<li>Dragon Ball Budokai</li>
+<li>Wii Sports</li>
+<li>Spider-Man 2</li>
+
+</ul>
+
+</div>
+
+</div>
+</div>
 
 </div>
 
 </section>
 
-<section class="cards" id="games">
+<section id="about">
 
-<div class="card">
+<h2 class="section-title">🚀 Sobre o GameZone BR</h2>
 
-<h3>📱 Jogos leves Android</h3>
+<p style="max-width:900px;margin:auto;text-align:center;line-height:1.8;color:#cbd5e1;">
 
-<p>
-• Subway Surfers
-<br>
-• Clash Royale
-<br>
-• Brawl Stars
-<br>
-• Minecraft
+O GameZone BR é um portal focado em emulação mobile,
+Android gamer, desempenho, configs e jogos clássicos.
+Nosso objetivo é ajudar jogadores a aproveitarem ao máximo
+o celular com os melhores emuladores e configurações.
+
 </p>
-
-</div>
-
-<div class="card">
-
-<h3>⚡ Dicas de desempenho</h3>
-
-<p>
-✅ Deixe espaço livre
-<br>
-✅ Evite apps em segundo plano
-<br>
-✅ Use drivers atualizados
-<br>
-✅ Evite SD lento
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🚀 Futuras novidades</h3>
-
-<p>
-Em breve:
-<br><br>
-• Mais emuladores
-<br>
-• Notícias gamer
-<br>
-• Wallpapers
-<br>
-• Tutoriais completos
-</p>
-
-</div>
 
 </section>
 
 <footer>
 
-<p>© 2026 GameZone BR - Site gamer oficial 😎</p>
+<p>
+© 2026 GameZone BR - Portal Gamer Oficial 😎🔥
+</p>
 
 </footer>
 
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5fae4d5f87.mp3?filename=gaming-music-6682.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
-/* TRIÂNGULOS ANIMADOS */
+/* TRIÂNGULOS */
 
 const background = document.getElementById("background");
 
-for(let i = 0; i < 40; i++){
+for(let i=0;i<60;i++){
 
 const triangle = document.createElement("div");
 
 triangle.classList.add("triangle");
 
-triangle.style.left = Math.random() * 100 + "vw";
+triangle.style.left = Math.random()*100 + "vw";
 
-triangle.style.animationDuration = (Math.random() * 5 + 5) + "s";
+triangle.style.animationDuration = (Math.random()*6 + 5) + "s";
 
 triangle.style.opacity = Math.random();
 
-triangle.style.transform = `scale(${Math.random() + 0.5})`;
+triangle.style.transform = `scale(${Math.random()+0.5})`;
 
 background.appendChild(triangle);
+
+}
+
+/* MÚSICA */
+
+const music = document.getElementById("music");
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
 
 }
 
